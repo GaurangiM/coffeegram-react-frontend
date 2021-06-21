@@ -7,7 +7,7 @@ const LandingPage = ()=> {
   return (
     <div>
       <h1>Welcome to coffee community !</h1>
-      <button>Explre Cafes</button>
+      <button>Explore Cafes</button>
       <div className="map">
           
       </div>
