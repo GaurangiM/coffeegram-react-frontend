@@ -9,7 +9,8 @@ import { useHistory, Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
 
 export default function SignUp() {
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
@@ -25,11 +26,12 @@ export default function SignUp() {
   function submitForm(event) {
     event.preventDefault();
 
-    dispatch(signUp(name, email, password));
+    dispatch(signUp(firstName, lastName, email, password));
 
     setEmail("");
     setPassword("");
-    setName("");
+    setFirstName("");
+    setLastName("");
   }
 
   return (
@@ -37,12 +39,22 @@ export default function SignUp() {
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
         <h1 className="mt-5 mb-5">Signup</h1>
         <Form.Group controlId="formBasicName">
-          <Form.Label>Name</Form.Label>
+          <Form.Label>First Name</Form.Label>
           <Form.Control
-            value={name}
-            onChange={event => setName(event.target.value)}
+            value={firstName}
+            onChange={event => setFirstName(event.target.value)}
             type="text"
-            placeholder="Enter name"
+            placeholder="Enter first name"
+            required
+          />
+        </Form.Group>
+        <Form.Group controlId="formBasicName">
+          <Form.Label>Last Name</Form.Label>
+          <Form.Control
+            value={lastName}
+            onChange={event => setLastName(event.target.value)}
+            type="text"
+            placeholder="Enter last name"
             required
           />
         </Form.Group>

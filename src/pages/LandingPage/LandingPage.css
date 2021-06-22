@@ -1,0 +1,18 @@
+.LandingPage {
+  text-align: center;
+  min-height: 100vh;
+    margin-top: 10%;
+}
+
+.LandingPage a {
+  color: black;
+  border: 1px solid black;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+.LandingPage a:hover {
+  color: white;
+  text-decoration: none;
+  background-color: black;
+}

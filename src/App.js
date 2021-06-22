@@ -11,22 +11,13 @@ import HomePage from "./pages/HomePage/HomePage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import MyCafes from "./pages/MyCafes/MyCafes";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
+import CafeDetailsPage from "./pages/CafeDetailsPage/CafeDetailsPage"
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
-import { Jumbotron } from "react-bootstrap";
 
-const Home = () => (
-  <Jumbotron>
-    <h1>Home</h1>
-  </Jumbotron>
-);
-const Other = () => (
-  <Jumbotron>
-    <h1>Other</h1>
-  </Jumbotron>
-);
+
 
 function App() {
   const dispatch = useDispatch();
@@ -41,14 +32,18 @@ function App() {
       <Navigation />
       <MessageBox />
       {isLoading ? <Loading /> : null}
-      <Switch>
-      <Route exact path="/" component={LandingPage} />
-        <Route path="/home" component={HomePage} />
-        <Route path="/mycafes" component={MyCafes}/>
-        <Route path="/aboutus" component={AboutUsPage} />
-        <Route path="/signup" component={SignUp} />
-        <Route path="/login" component={Login} />
-      </Switch>
+      <div className="appContainer">
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route path="/home" component={HomePage} />
+          <Route path="/mycafes" component={MyCafes}/>
+          <Route path="/aboutus" component={AboutUsPage} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/login" component={Login} />
+          <Route path="/cafes/:cafeId" component={CafeDetailsPage} />
+        </Switch>
+      </div>
+      
     </div>
   );
 }
