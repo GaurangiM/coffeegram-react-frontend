@@ -1,8 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux'
 import React, {useState, useEffect} from 'react'
+import { Link } from 'react-router-dom'
 
 import {getCafes} from '../../store/cafeList/actions'
 import {selectCafes} from '../../store/cafeList/selectors'
+import {
+  appLoading,
+  appDoneLoading,
+  showMessageWithTimeout,
+  setMessage
+} from "../../store/appState/actions";
 
 import './HomePage.css'
 
@@ -26,6 +33,9 @@ const HomePage = ()=> {
         setCityCafes([...cafesInCity])
         setShowSearchResult(true)
         setSearchCity("")
+      }else {
+        dispatch(setMessage("danger", true, `No cafes found in ${searchCity}`));
+        setSearchCity("")
       }
       
     }
@@ -45,14 +55,18 @@ const HomePage = ()=> {
       <div>
         {setShowSearchResult && (
           cityCafes.map(cafe=> {
-            return <img key={cafe.id} 
-                        src={cafe.imageUrl}/>
+            return <Link key={cafe.id} 
+                          to={`/cafes/${cafe.id}`}>
+                      <img src={cafe.imageUrl}/>
+                    </Link>
           })
         )}
         {(!showSearchResult && allCafeList) && (
           allCafeList.map(cafe=> {
-            return <img key={cafe.id} 
-                        src={cafe.imageUrl}/>
+            return <Link key={cafe.id} 
+                          to={`/cafes/${cafe.id}`}>
+                      <img src={cafe.imageUrl}/>
+                    </Link>
           })
         )}
       </div>

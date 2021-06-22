@@ -11,6 +11,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import MyCafes from "./pages/MyCafes/MyCafes";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
+import CafeDetailsPage from "./pages/CafeDetailsPage/CafeDetailsPage"
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
@@ -39,6 +40,7 @@ function App() {
           <Route path="/aboutus" component={AboutUsPage} />
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={Login} />
+          <Route path="/cafes/:cafeId" component={CafeDetailsPage} />
         </Switch>
       </div>
       
