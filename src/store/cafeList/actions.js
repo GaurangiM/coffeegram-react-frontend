@@ -15,6 +15,7 @@ export const fetchDataSuccess = (cafeList)=> ({
   payload: cafeList
 })
 
+
 export const getCafes = ()=> async(dispatch, getState)=> {
   dispatch(appLoading());
   try {
@@ -26,6 +27,16 @@ export const getCafes = ()=> async(dispatch, getState)=> {
     
     
     
+  }catch(e) {
+    console.log(e.message)
+  }
+}
+
+export const getCafeReviews = (id)=> async(dispatch, getState)=> {
+  try {
+    const response = await axios.get(`${apiUrl}/cafes/${id}/reviews`)
+    console.log(response)
+    //dispatch(fetchReviewsSuccess(response.data.reviews))
   }catch(e) {
     console.log(e.message)
   }

@@ -1,0 +1,1 @@
+export const selectCafe = state => state.cafeDetails;
