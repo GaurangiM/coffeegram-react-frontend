@@ -33,6 +33,7 @@ const CafeDetails = (props)=> {
             ))}
           </Carousel>
           <div className="cafeDescription">
+            <p>Rating : {props.rating}</p>
             <p>{cafeInfo.description}</p>
             <p>Contact : {cafeInfo.contact}</p>
             <p>Address : {cafeInfo.address.houseNumber} {cafeInfo.address.streetName} {cafeInfo.address.postCode} {cafeInfo.address.city}
@@ -41,7 +42,10 @@ const CafeDetails = (props)=> {
           <div className="reviews">
               {cafeInfo.user_caves && (
                 cafeInfo.user_caves.map(i=> (
-                  <p key={cafeInfo.id}>{i.review}</p>
+                  <div>
+                    <p key={cafeInfo.id}>{i.review}</p>
+                    <p>--- {i.user.firstName} {i.user.lastName}</p>
+                  </div>
                 ))
               )}
           </div>

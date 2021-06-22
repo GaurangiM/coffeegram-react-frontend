@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 
 import {getCafes} from '../../store/cafeList/actions'
-import {selectCafes} from '../../store/cafeList/selectors'
+import {selectCafes, selectRatings} from '../../store/cafeList/selectors'
 import {
   appLoading,
   appDoneLoading,
@@ -55,10 +55,14 @@ const HomePage = ()=> {
       <div>
         {setShowSearchResult && (
           cityCafes.map(cafe=> {
-            return <Link key={cafe.id} 
+            return (
+              
+                <Link key={cafe.id} 
                           to={`/cafes/${cafe.id}`}>
                       <img src={cafe.imageUrl}/>
-                    </Link>
+                </Link>
+            
+            )
           })
         )}
         {(!showSearchResult && allCafeList) && (
