@@ -1,0 +1,12 @@
+.HomePage {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.HomePage img {
+  max-width: 400px;
+  max-height: 400px;
+  padding: 10px 20px;
+}

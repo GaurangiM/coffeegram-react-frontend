@@ -18,10 +18,14 @@ export const fetchDataSuccess = (cafeList)=> ({
 export const getCafes = ()=> async(dispatch, getState)=> {
   dispatch(appLoading());
   try {
-    const response = await axios.get(`${apiUrl}/cafes`)
-    console.log(response)
-    dispatch(fetchDataSuccess(response.data.allCafes))
-    dispatch(appDoneLoading());
+    
+      const response = await axios.get(`${apiUrl}/cafes`)
+      console.log(response)
+      dispatch(fetchDataSuccess(response.data.allCafes))
+      dispatch(appDoneLoading());
+    
+    
+    
   }catch(e) {
     console.log(e.message)
   }
