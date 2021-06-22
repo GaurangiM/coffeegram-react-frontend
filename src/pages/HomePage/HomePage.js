@@ -3,11 +3,8 @@ import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 
 import {getCafes} from '../../store/cafeList/actions'
-import {selectCafes, selectRatings} from '../../store/cafeList/selectors'
+import {selectCafes} from '../../store/cafeList/selectors'
 import {
-  appLoading,
-  appDoneLoading,
-  showMessageWithTimeout,
   setMessage
 } from "../../store/appState/actions";
 
@@ -36,6 +33,7 @@ const HomePage = ()=> {
       }else {
         dispatch(setMessage("danger", true, `No cafes found in ${searchCity}`));
         setSearchCity("")
+        setCityCafes(allCafeList)
       }
       
     }
@@ -59,7 +57,7 @@ const HomePage = ()=> {
               
                 <Link key={cafe.id} 
                           to={`/cafes/${cafe.id}`}>
-                      <img src={cafe.imageUrl}/>
+                      <img src={cafe.imageUrl} alt="A cafe"/>
                 </Link>
             
             )
@@ -69,7 +67,7 @@ const HomePage = ()=> {
           allCafeList.map(cafe=> {
             return <Link key={cafe.id} 
                           to={`/cafes/${cafe.id}`}>
-                      <img src={cafe.imageUrl}/>
+                      <img src={cafe.imageUrl} alt="A cafe"/>
                     </Link>
           })
         )}

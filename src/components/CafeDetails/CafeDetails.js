@@ -2,7 +2,7 @@ import React from 'react'
 import Carousel from 'react-bootstrap/Carousel'
 
 import { selectCafe } from '../../store/cafeDetails/selectors';
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import './CafeDetails.css'
 
