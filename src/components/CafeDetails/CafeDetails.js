@@ -1,20 +1,39 @@
 import React from 'react'
-import Card from 'react-bootstrap/Card'
+import Carousel from 'react-bootstrap/Carousel'
 
 import './CafeDetails.css'
 
 const CafeDetails = (props)=> {
+ 
   return (
     <div className="details">
       {props.details && (
         <div>
-          <Card className="bg-dark text-white">
-          <img src={props.details.imageUrl} alt="Card image" />
-          <Card.ImgOverlay>
-            <Card.Title>{props.details.name}</Card.Title>
-          </Card.ImgOverlay>
-        </Card>
-        <p>{props.details.description}</p>
+          <Carousel fade>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={props.details.imageUrl}
+                alt="First slide"
+              />
+            </Carousel.Item>
+            {props.details.images.map(img=> (
+              <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={img.image}
+                alt="First slide"
+              />
+            </Carousel.Item>
+            ))}
+          </Carousel>
+          <div className="cafeDescription">
+            <p>{props.details.description}</p>
+            <p>Contact : {props.details.contact}</p>
+            <p>Address : {props.details.address.houseNumber} {props.details.address.streetName} {props.details.address.postCode} {props.details.address.city}
+            </p>
+          </div>
+          
         </div>
         
       )}
