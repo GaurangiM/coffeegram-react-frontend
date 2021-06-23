@@ -21,15 +21,7 @@ const PostNewCafe = ()=> {
   const [cafeFound, setCafeFound] = useState()
 
   //useEffect(, [])
-
-  const postCafeOrReview = async()=> {
-    //const query = encodeURI(address)
-    //const geoData = await Axios.get(`http://api.positionstack.com/v1/forward?access_key=13a366ecdb5f1db8a5484e2a6ac61aec&query=${query}`)
-    //dispatch(postNewCafe())
-    //console.log(query, geoData.data.data[0])
-  }
-
-  const verifyCafe = ()=> {
+    const verifyCafe = ()=> {
     if(allCafeList) {
       const matchedCafe = allCafeList.find(
         cafe=> cafe.name.toLowerCase() === name.toLowerCase()
@@ -39,7 +31,10 @@ const PostNewCafe = ()=> {
         setCafeFound(matchedCafe)
         setCafeExists(true)
         dispatch(setMessage("danger", true, `${matchedCafe.name} cafe already exists ! You can post a review`));
-      }
+        setName("")
+      } else 
+      dispatch(setMessage("danger", true, `${name} cafe does not exist ! Go ahead & add to our list`));
+      setName("")
     }
     
   }
@@ -64,7 +59,7 @@ const PostNewCafe = ()=> {
           </Button>
         </Form.Group>
       </Form>
-        {cafeExists ? <CafeExists cafe={cafeFound}/> : <CafeNotExist/>}
+        {cafeExists ? <CafeExists cafe={cafeFound}/> : <CafeNotExist cafeName={name}/>}
       
     </div>
   )
