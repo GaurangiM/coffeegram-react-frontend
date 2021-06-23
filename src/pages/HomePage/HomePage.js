@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux'
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
+import Form from "react-bootstrap/Form";
+import { Col, Row } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 
 import {getCafes} from '../../store/cafeList/actions'
 import {selectCafes} from '../../store/cafeList/selectors'
 import {
-  appLoading,
-  appDoneLoading,
-  showMessageWithTimeout,
   setMessage
 } from "../../store/appState/actions";
 
@@ -36,6 +36,7 @@ const HomePage = ()=> {
       }else {
         dispatch(setMessage("danger", true, `No cafes found in ${searchCity}`));
         setSearchCity("")
+        setCityCafes(allCafeList)
       }
       
     }
@@ -44,28 +45,46 @@ const HomePage = ()=> {
 
   return (
     <div className="HomePage">
-      <div>
-        <input type="text" placeholder="Enter city"
-                value={searchCity}
-                onChange={(e)=> {
-                  setSearchCity(e.target.value)
-                  }}/>
-        <button onClick={searchCafes}>Search</button>
+      <div className="searchCity">
+        <Form>
+          <Row className="align-items-center">
+            <Col xs="auto">
+              <Form.Control className="mb-2"
+                            id="inlineFormInput"
+                            placeholder="Enter city"
+                            value={searchCity}
+                            onChange={(e)=> {
+                              setSearchCity(e.target.value)
+                            }}
+              />
+            </Col>
+            <Col xs="auto">
+              <Button type="submit" className="mb-2"
+                      onClick={searchCafes}>
+                  Search
+              </Button>
+            </Col>
+          </Row>
+        </Form>
       </div>
-      <div>
+      <div className="cafes">
         {setShowSearchResult && (
           cityCafes.map(cafe=> {
-            return <Link key={cafe.id} 
+            return (
+              
+                <Link key={cafe.id} 
                           to={`/cafes/${cafe.id}`}>
-                      <img src={cafe.imageUrl}/>
-                    </Link>
+                      <img src={cafe.imageUrl} alt="A cafe"/>
+                </Link>
+            
+            )
           })
         )}
         {(!showSearchResult && allCafeList) && (
           allCafeList.map(cafe=> {
             return <Link key={cafe.id} 
                           to={`/cafes/${cafe.id}`}>
-                      <img src={cafe.imageUrl}/>
+                      <img src={cafe.imageUrl} alt="A cafe"/>
                     </Link>
           })
         )}

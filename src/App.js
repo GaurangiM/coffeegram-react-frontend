@@ -13,16 +13,19 @@ import MyCafes from "./pages/MyCafes/MyCafes";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import CafeDetailsPage from "./pages/CafeDetailsPage/CafeDetailsPage"
 import PostNewCafe from "./pages/PostNewCafe/PostNewCafe";
+import PageNotFound from "./components/PageNotFound/PageNotFound";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
+import { selectToken } from "./store/user/selectors";
 
 
 
 function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAppLoading);
+  const token = useSelector(selectToken);
 
   useEffect(() => {
     dispatch(getUserWithStoredToken());
@@ -37,12 +40,14 @@ function App() {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/home" component={HomePage} />
-          <Route path="/mycafes" component={MyCafes}/>
           <Route path="/aboutus" component={AboutUsPage} />
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={Login} />
           <Route path="/cafes/:cafeId" component={CafeDetailsPage} />
-          <Route path="/postcafe" component={PostNewCafe} />
+          {token ? <Route path="/postcafe" component={PostNewCafe} /> : 
+                  <PageNotFound message="Hey Coffeeholic, be a part of our community by signing up and add some cool cafes to our list !"/>}
+          {token ? <Route path="/mycafes" component={MyCafes}/> :
+                    <PageNotFound message="Hey Coffeeholic, be a part of our community by signing up and add some cool cafes to our list !"/>}
         </Switch>
       </div>
       

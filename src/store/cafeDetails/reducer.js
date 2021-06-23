@@ -2,7 +2,7 @@ import {FETCHREVIEWS_SUCCESS} from './actions'
 
 const initialState = {
   images: [],
-  userCafes: [],
+  user_caves: [],
   address: {}
 }
 

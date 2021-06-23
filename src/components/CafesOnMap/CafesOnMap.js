@@ -19,11 +19,11 @@ const CafesOnMap = ({cafes})=> {
         />
         {cafes && (
             cafes.map(cafe=> (
-              <Marker position={[cafe.address.latitude, cafe.address.longitude]}
+              <Marker position={[cafe.cafe.address.latitude, cafe.cafe.address.longitude]}
                       key={cafe.id}
                       icon={cafeIcon}>
                 <Popup>
-                  {cafe.name}
+                  {cafe.cafe.name}
                 </Popup>
               </Marker>
             ))
