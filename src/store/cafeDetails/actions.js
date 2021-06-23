@@ -11,11 +11,11 @@ import { selectUser } from '../user/selectors'
 
 export const FETCHREVIEWS_SUCCESS = "FETCHREVIEWS_SUCCESS";
 
+
 export const fetchReviewsSuccess = (cafe)=> ({
   type: FETCHREVIEWS_SUCCESS,
   payload: cafe
 })
-
 
 export const fetchCafeDetails = (id)=> async(dispatch, getState)=> {
   dispatch(appLoading());
@@ -29,12 +29,3 @@ export const fetchCafeDetails = (id)=> async(dispatch, getState)=> {
   }
 }
 
-export const postReviewForCafe = (cafeId, review, rating, image)=> async(dispatch, getState)=> {
-  const {id, token } = selectUser(getState())
-  dispatch(appLoading());
-  try {
-
-  }catch(e) {
-    console.log(e.message)
-  }
-}

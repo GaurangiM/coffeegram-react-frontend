@@ -7,16 +7,21 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
 import Axios from 'axios';
 
-import { postReviewForCafe } from '../../store/cafeDetails/actions';
+import { postReviewForCafe } from '../../store/user_cafes/actions';
+
 
 const CafeExist = ({cafe})=> {
   const dispatch = useDispatch()
   const [review, setReview] = useState("")
   const [rating, setRating] = useState("")
   const [image, setImage] = useState("")
+  
 
   const postReview = ()=> {
     dispatch(postReviewForCafe(cafe.id, review, rating, image))
+    setReview("")
+    setRating("")
+    setImage("")
   }
 
   return (

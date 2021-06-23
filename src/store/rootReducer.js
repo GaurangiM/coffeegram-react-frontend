@@ -3,10 +3,12 @@ import appState from "./appState/reducer";
 import user from "./user/reducer";
 import cafeList from './cafeList/reducer'
 import cafeDetails from './cafeDetails/reducer'
+import userCafes from './user_cafes/reducer'
 
 export default combineReducers({
   appState,
   user,
   cafeList,
-  cafeDetails
+  cafeDetails,
+  userCafes
 });

@@ -1,0 +1,1 @@
+export const selectUserCafes = state => state.userCafes;

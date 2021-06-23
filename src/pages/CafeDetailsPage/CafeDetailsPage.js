@@ -16,7 +16,7 @@ const CafeDetailsPage = ()=> {
     total=total + parseFloat(element)
   });
   
-  let avgRating = total/ratings.length
+  let avgRating = (total/ratings.length).toFixed(1)
   
   useEffect(()=> {
     dispatch(fetchCafeDetails(cafeId))
