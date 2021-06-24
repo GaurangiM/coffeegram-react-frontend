@@ -24,6 +24,7 @@ const CafesOnMap = ({cafes})=> {
                       icon={cafeIcon}>
                 <Popup>
                   {cafe.cafe.name}
+                  <p>{cafe.cafe.address.houseNumber} {cafe.cafe.address.streetName}, {cafe.cafe.address.postCode} {cafe.cafe.address.city}</p>
                 </Popup>
               </Marker>
             ))

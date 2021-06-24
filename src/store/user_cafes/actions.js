@@ -1,6 +1,5 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
-import { selectToken } from "./selectors";
 import {
   appLoading,
   appDoneLoading,
@@ -16,7 +15,7 @@ export const postReviewSuccess = (userReview)=> ({
   payload: userReview
 })
 
-export const postReviewForCafe = (cafeId, review, rating, image)=> async(dispatch, getState)=> {
+export const postReviewForCafe = (cafeId, review, rating, image, history)=> async(dispatch, getState)=> {
   const {id, token } = selectUser(getState())
   dispatch(appLoading());
   try {
@@ -33,6 +32,7 @@ export const postReviewForCafe = (cafeId, review, rating, image)=> async(dispatc
       }
     })
     dispatch(postReviewSuccess(userReview.data.userCafe))
+    history.push("/")
     dispatch(appDoneLoading());
     dispatch(showMessageWithTimeout("success", true, "Hurray ! Thank you for the review."))
   }catch(e) {

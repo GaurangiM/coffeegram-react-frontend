@@ -17,7 +17,7 @@ export default function Navigation() {
 
   return (
     <div className="Navigation">
-      <Navbar bg="light" expand="lg" >
+      <Navbar expand="lg" >
       <Navbar.Brand as={NavLink} to="/">
         COFFEEGRAM
       </Navbar.Brand>

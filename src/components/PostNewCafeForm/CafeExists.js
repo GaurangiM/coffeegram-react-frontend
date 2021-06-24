@@ -5,11 +5,13 @@ import { Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { useDispatch } from 'react-redux'
 import ReactStars from "react-rating-stars-component";
+import { useHistory } from "react-router-dom";
 
 import { postReviewForCafe } from '../../store/user_cafes/actions';
 
 
 const CafeExist = ({cafe})=> {
+  const history = useHistory()
   const dispatch = useDispatch()
   const [review, setReview] = useState("")
   const [rating, setRating] = useState("")
@@ -17,7 +19,7 @@ const CafeExist = ({cafe})=> {
   
 
   const postReview = ()=> {
-    dispatch(postReviewForCafe(cafe.id, review, rating, image))
+    dispatch(postReviewForCafe(cafe.id, review, rating, image, history))
     setReview("")
     setRating("")
     setImage("")

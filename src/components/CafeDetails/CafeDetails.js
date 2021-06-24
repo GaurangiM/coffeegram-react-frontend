@@ -48,43 +48,24 @@ const CafeDetails = (props)=> {
             <p>Address : {cafeInfo.address.houseNumber} {cafeInfo.address.streetName} {cafeInfo.address.postCode} {cafeInfo.address.city}
             </p>
           </div>
-          <div className="reviews">
-              {cafeInfo.user_caves && (
-                cafeInfo.user_caves.map(i=> (
-                  <div>
-                    <p key={cafeInfo.id}>{i.review}</p>
-                    <p>--- {i.user.firstName} {i.user.lastName}</p>
-                  </div>
-                ))
-              )}
-          </div>
+         <Comment.Group>
+          <Header as='h3' dividing>
+            Reviews
+          </Header>
 
-
-    <Comment.Group>
-      <Header as='h3' dividing>
-        Comments
-      </Header>
-
-      <Comment>
-        <Comment.Avatar src='https://react.semantic-ui.com/images/avatar/small/matt.jpg' />
-        <Comment.Content>
-          <Comment.Author as='a'>Matt</Comment.Author>
-          <Comment.Text>How artistic!</Comment.Text>
-        </Comment.Content>
-      </Comment>
-
-      <Form reply>
-        <Form.TextArea />
-        <Button content='Add Reply' labelPosition='left' icon='edit' primary />
-      </Form>
-    </Comment.Group>
-          
-        </div>
-        
-      )}
-      
-    </div>
-    
+          {cafeInfo.user_caves.map(i=> (
+            <Comment>
+            <Comment.Avatar src={i.user.avatar} />
+            <Comment.Content>
+              <Comment.Author as='a'>{i.user.firstName} {i.user.lastName}</Comment.Author>
+              <Comment.Text>{i.review}</Comment.Text>
+            </Comment.Content>
+          </Comment>
+          ))}
+          </Comment.Group>
+      </div>
+  )}
+  </div>
   )
 }
 

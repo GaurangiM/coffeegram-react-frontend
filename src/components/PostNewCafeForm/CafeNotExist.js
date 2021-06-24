@@ -4,11 +4,13 @@ import React from 'react'
 import { Col, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { useDispatch } from 'react-redux'
+import { useHistory } from "react-router-dom";
 
 import {postNewCafe} from '../../store/cafeList/actions'
 import './PostNewCafeForm.css'
 
 const CafeNotExists = ({cafeName})=> {
+  const history = useHistory()
   const dispatch = useDispatch()
   const [description, setDescription] = useState("")
   const [postCode, setPostCode] = useState("")
@@ -25,7 +27,7 @@ const CafeNotExists = ({cafeName})=> {
     
       setLatitude(geoData.data.data[0].latitude)
       setLongitude(geoData.data.data[0].longitude)*/
-      dispatch(postNewCafe(cafeName, description, postCode, street, houseNumber, city, image))
+      dispatch(postNewCafe(cafeName, description, postCode, street, houseNumber, city, image, history))
       setCity("")
       setDescription("")
       setHouseNumber("")

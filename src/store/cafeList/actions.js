@@ -2,6 +2,7 @@ import { apiUrl } from "../../config/constants";
 import axios from "axios";
 import { selectToken } from "./selectors";
 
+
 import {
   appLoading,
   appDoneLoading,
@@ -50,7 +51,7 @@ export const getCafeReviews = (id)=> async(dispatch, getState)=> {
   }
 }
 
-export const postNewCafe = (name, description, postCode, street, houseNumber, city, image)=> 
+export const postNewCafe = (name, description, postCode, street, houseNumber, city, image, history)=> 
       async(dispatch, getState)=> 
 {
   const {id, token } = selectUser(getState())
@@ -79,7 +80,10 @@ export const postNewCafe = (name, description, postCode, street, houseNumber, ci
       }
     })
     console.log(response)
+    history.push("/")
     dispatch(appDoneLoading());
+    
+    //dispatch(setMessage("Redirect"))
     dispatch(showMessageWithTimeout("success", true, "Hurray ! One more cafe to our list"))
   }catch(e) {
     console.log(e.message)
