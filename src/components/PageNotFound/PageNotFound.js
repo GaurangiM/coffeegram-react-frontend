@@ -5,7 +5,7 @@ const PageNotFound = ({message})=> {
   return (
     <div className="pageNotFound">
       <h2>{message}</h2>
-      <img src="/something-went-wrong.jpeg"></img>
+      <img src="/spilled-coffee.jpeg" alt="Spilled Coffee"></img>
       
     </div>
   )

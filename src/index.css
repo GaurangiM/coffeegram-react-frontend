@@ -1,5 +1,18 @@
 body {
   font-family: 'Josefin Slab', serif !important;
   font-family: 'Kalam', cursive;
-  font-size: 1.7rem;
+  font-size: 1.4rem !important;
+  
+}
+
+.btn, .btn-primary {
+  background-color: white !important;
+  color: black !important;
+  border-color: black !important;
+}
+
+.btn:hover, .btn-primary:hover {
+  background-color: black !important;
+  color: white !important;
+  border-color: white !important;
 }

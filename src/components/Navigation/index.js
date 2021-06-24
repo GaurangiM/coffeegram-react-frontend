@@ -8,13 +8,16 @@ import NavbarItem from "./NavbarItem";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
 
+import './Navigation.css'
+
 export default function Navigation() {
   const token = useSelector(selectToken);
 
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
   return (
-    <Navbar bg="light" expand="lg">
+    <div className="Navigation">
+      <Navbar expand="lg" >
       <Navbar.Brand as={NavLink} to="/">
         COFFEEGRAM
       </Navbar.Brand>
@@ -27,5 +30,7 @@ export default function Navigation() {
         </Nav>
       </Navbar.Collapse>
     </Navbar>
+    </div>
+    
   );
 }

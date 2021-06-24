@@ -3,13 +3,14 @@ import Form from "react-bootstrap/Form";
 import React from 'react'
 import { Col, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import { useDispatch, useSelector } from 'react-redux'
-import Axios from 'axios';
+import { useDispatch } from 'react-redux'
+import { useHistory } from "react-router-dom";
 
 import {postNewCafe} from '../../store/cafeList/actions'
 import './PostNewCafeForm.css'
 
 const CafeNotExists = ({cafeName})=> {
+  const history = useHistory()
   const dispatch = useDispatch()
   const [description, setDescription] = useState("")
   const [postCode, setPostCode] = useState("")
@@ -17,8 +18,6 @@ const CafeNotExists = ({cafeName})=> {
   const [houseNumber, setHouseNumber] = useState("")
   const [city, setCity] = useState("")
   const [image, setImage] = useState("")
-  const [latitude, setLatitude] = useState()
-  const [longitude, setLongitude] = useState()
 
   const postCafe = async(e)=> {
     e.preventDefault()
@@ -28,24 +27,14 @@ const CafeNotExists = ({cafeName})=> {
     
       setLatitude(geoData.data.data[0].latitude)
       setLongitude(geoData.data.data[0].longitude)*/
-      dispatch(postNewCafe(cafeName, description, postCode, street, houseNumber, city, image))
+      dispatch(postNewCafe(cafeName, description, postCode, street, houseNumber, city, image, history))
       setCity("")
       setDescription("")
       setHouseNumber("")
       setImage("")
       setPostCode("")
       setStreet("")
-    
-    
-  }
-
-  /*const postCafe = (e)=> {
-    //e.preventDefault()
-    //postCafeOrReview()
-    console.log(description, postCode, street, houseNumber, city, image)
-    
-    
-  }*/
+    }
 
   return (
     <Form className="newCafeForm">

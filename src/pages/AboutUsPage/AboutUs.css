@@ -1,0 +1,17 @@
+.aboutUs {
+  text-align: center;
+}
+
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 60px;
+}
+
+.member {
+  border:1px solid transparent;
+  margin-bottom: 50px;
+  width: 285px;
+  padding: 10px 15px;
+}

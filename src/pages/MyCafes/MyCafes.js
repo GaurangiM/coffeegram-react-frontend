@@ -5,6 +5,8 @@ import { selectUser } from "../../store/user/selectors";
 
 import CafesOnMap from '../../components/CafesOnMap/CafesOnMap'
 
+import './MyCafes.css'
+
 const MyCafes = ()=> {
   const [cafeList, setCafeList] = useState([]);
   const user = useSelector(selectUser);
@@ -19,6 +21,7 @@ const MyCafes = ()=> {
   }, [])
   return (
     <div className="MyCafes">
+      <h1>Hey Coffeeholic, here you can see the cafes you visited and reviewed in the past !</h1>
       <CafesOnMap cafes={cafeList}/>
     </div>
   )

@@ -1,16 +1,17 @@
 import React from 'react'
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux'
-import Axios from 'axios';
+import { useDispatch } from 'react-redux'
+import ReactStars from "react-rating-stars-component";
+import { useHistory } from "react-router-dom";
 
 import { postReviewForCafe } from '../../store/user_cafes/actions';
 
 
 const CafeExist = ({cafe})=> {
+  const history = useHistory()
   const dispatch = useDispatch()
   const [review, setReview] = useState("")
   const [rating, setRating] = useState("")
@@ -18,7 +19,7 @@ const CafeExist = ({cafe})=> {
   
 
   const postReview = ()=> {
-    dispatch(postReviewForCafe(cafe.id, review, rating, image))
+    dispatch(postReviewForCafe(cafe.id, review, rating, image, history))
     setReview("")
     setRating("")
     setImage("")
@@ -40,13 +41,14 @@ const CafeExist = ({cafe})=> {
         </Form.Group>
         <Form.Group controlId="formBasicName">
           <Form.Label>Rating</Form.Label>
-          <Form.Control
-            value={rating}
-            onChange={event => setRating(event.target.value)}
-            type="text"
-            placeholder="Rating"
-            required
-          />
+          <ReactStars
+                    count={5}
+                    size={24}
+                    activeColor="#ffd700"
+                    isHalf={true}
+                    edit={true}
+                    onChange={(newRating)=> setRating(newRating)}
+            />
         </Form.Group>
         <Form.Group controlId="formBasicName">
           <Form.Label>Picture of cafe</Form.Label>

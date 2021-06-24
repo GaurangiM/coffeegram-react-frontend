@@ -19,6 +19,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
 import { selectToken } from "./store/user/selectors";
+import { getCafes } from './store/cafeList/actions'
+import { getUsers } from './store/userList/actions'
 
 
 
@@ -29,11 +31,14 @@ function App() {
 
   useEffect(() => {
     dispatch(getUserWithStoredToken());
+    dispatch(getCafes())
+    dispatch(getUsers())
   }, [dispatch]);
 
   return (
     <div className="App">
       <Navigation />
+      <div className="mainSection">
       <MessageBox />
       {isLoading ? <Loading /> : null}
       <div className="appContainer">
@@ -45,11 +50,13 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/cafes/:cafeId" component={CafeDetailsPage} />
           {token ? <Route path="/postcafe" component={PostNewCafe} /> : 
-                  <PageNotFound message="Hey Coffeeholic, be a part of our community by signing up and add some cool cafes to our list !"/>}
+                  <PageNotFound message="Hey Coffeeholic, be a part of our community by signing up and add some cool cafes to our list!"/>}
           {token ? <Route path="/mycafes" component={MyCafes}/> :
-                    <PageNotFound message="Hey Coffeeholic, be a part of our community by signing up and add some cool cafes to our list !"/>}
+                    <PageNotFound message="Hey Coffeeholic, be a part of our community by signing up and add some cool cafes to our list!"/>}
         </Switch>
       </div>
+      </div>
+      
       
     </div>
   );
