@@ -19,6 +19,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
 import { selectToken } from "./store/user/selectors";
+import { getCafes } from './store/cafeList/actions'
+import { getUsers } from './store/userList/actions'
 
 
 
@@ -29,6 +31,8 @@ function App() {
 
   useEffect(() => {
     dispatch(getUserWithStoredToken());
+    dispatch(getCafes())
+    dispatch(getUsers())
   }, [dispatch]);
 
   return (

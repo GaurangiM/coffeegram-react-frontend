@@ -1,10 +1,14 @@
 import React from 'react'
-import Card from 'react-bootstrap/Card'
-import CardGroup from 'react-bootstrap/CardGroup'
+import { useSelector } from 'react-redux'
+
+import {selectUsers} from '../../store/userList/selectors'
 
 import './AboutUs.css'
 
 const AboutUsPage = ()=> {
+
+  const allUsers = useSelector(selectUsers)
+
   return (
     <div className="aboutUs">
       <h1>Coffeegram</h1>
@@ -15,39 +19,19 @@ const AboutUsPage = ()=> {
       </p>
       <h2>Come and be a part of Coffeegram by signing up !</h2>
       <h3>Meet our CoffeeGrammers</h3>
-      <CardGroup>
-        <Card>
-          <Card.Img variant="top" src="holder.js/100px160" />
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              This is a wider card with supporting text below as a natural lead-in to
-              additional content. This content is a little bit longer.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <Card>
-          <Card.Img variant="top" src="holder.js/100px160" />
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              This card has supporting text below as a natural lead-in to additional
-              content.{' '}
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <Card>
-          <Card.Img variant="top" src="holder.js/100px160" />
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              This is a wider card with supporting text below as a natural lead-in to
-              additional content. This card has even longer content than the first to
-              show that equal height action.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-      </CardGroup>
+      <div className="team">
+        {allUsers && (
+          allUsers.map(user=> (
+            <div className="member shadow" key={user.id}>
+              <img src={user.avatar}/>
+              <p>{user.firstName} {user.lastName}</p>
+              <p>{user.bio}</p>
+            </div>
+          ))
+        )}
+      </div>
+      
+      
     </div>
   )
 }

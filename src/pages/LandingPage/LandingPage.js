@@ -10,8 +10,7 @@ import  './LandingPage.css'
 const LandingPage = ()=> {
   const dispatch = useDispatch()
   useEffect(()=> {
-    dispatch(getCafes())
-    dispatch(getUsers())
+    
   }, [])
 
   return (
