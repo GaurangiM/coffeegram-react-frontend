@@ -24,7 +24,8 @@ const HomePage = ()=> {
     dispatch(getCafes())
   }, [dispatch])
 
-  const searchCafes = async()=> {
+  const searchCafes = async(e)=> {
+    e.preventDefault()
     if(allCafeList) {
       const cafesInCity = allCafeList.filter(cafe=> 
         cafe.address.city.toLowerCase() === searchCity.toLowerCase())

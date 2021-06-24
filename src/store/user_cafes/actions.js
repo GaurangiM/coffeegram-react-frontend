@@ -34,7 +34,7 @@ export const postReviewForCafe = (cafeId, review, rating, image)=> async(dispatc
     })
     dispatch(postReviewSuccess(userReview.data.userCafe))
     dispatch(appDoneLoading());
-
+    dispatch(showMessageWithTimeout("success", true, "Hurray ! Thank you for the review."))
   }catch(e) {
     console.log(e.message)
   }

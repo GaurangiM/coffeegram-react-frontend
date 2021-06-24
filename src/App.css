@@ -1,3 +1,14 @@
 body {
   font-family: 'Kalam', cursive;
+  font-size: 1.7rem;
+}
+
+.mainSection {
+  padding: 80px;
+}
+
+.shadow{
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+     -moz-box-shadow: 0 10px 6px -6px #777;
+          box-shadow: 0 10px 6px -6px #777;
 }

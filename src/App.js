@@ -34,6 +34,7 @@ function App() {
   return (
     <div className="App">
       <Navigation />
+      <div className="mainSection">
       <MessageBox />
       {isLoading ? <Loading /> : null}
       <div className="appContainer">
@@ -45,11 +46,13 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/cafes/:cafeId" component={CafeDetailsPage} />
           {token ? <Route path="/postcafe" component={PostNewCafe} /> : 
-                  <PageNotFound message="Hey Coffeeholic, be a part of our community by signing up and add some cool cafes to our list !"/>}
+                  <PageNotFound message="Hey Coffeeholic, be a part of our community by signing up and add some cool cafes to our list!"/>}
           {token ? <Route path="/mycafes" component={MyCafes}/> :
-                    <PageNotFound message="Hey Coffeeholic, be a part of our community by signing up and add some cool cafes to our list !"/>}
+                    <PageNotFound message="Hey Coffeeholic, be a part of our community by signing up and add some cool cafes to our list!"/>}
         </Switch>
       </div>
+      </div>
+      
       
     </div>
   );
