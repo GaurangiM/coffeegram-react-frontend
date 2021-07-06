@@ -1,7 +1,7 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel'
 import ReactStars from "react-rating-stars-component";
-import { Button, Comment, Form, Header } from 'semantic-ui-react'
+import { Comment, Header } from 'semantic-ui-react'
 
 import { selectCafe } from '../../store/cafeDetails/selectors';
 import { useSelector } from 'react-redux'

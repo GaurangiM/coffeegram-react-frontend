@@ -2,9 +2,6 @@ import React, { useEffect } from 'react'
 import {Link} from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 
-import { getCafes } from '../../store/cafeList/actions'
-import { getUsers } from '../../store/userList/actions'
-
 import  './LandingPage.css'
 
 const LandingPage = ()=> {

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectUser } from "../../store/user/selectors";
 
 import CafesOnMap from '../../components/CafesOnMap/CafesOnMap'
@@ -18,7 +18,7 @@ const MyCafes = ()=> {
       setCafeList([...response.data.userCafes])
     }
     fetchData()
-  }, [])
+  })
   return (
     <div className="MyCafes">
       <h1>Hey Coffeeholic, here you can see the cafes you visited and reviewed in the past !</h1>

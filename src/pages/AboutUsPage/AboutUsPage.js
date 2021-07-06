@@ -23,7 +23,7 @@ const AboutUsPage = ()=> {
         {allUsers && (
           allUsers.map(user=> (
             <div className="member shadow" key={user.id}>
-              <img src={user.avatar}/>
+              <img src={user.avatar} alt="User Avatar"/>
               <p>{user.firstName} {user.lastName}</p>
               <p>{user.bio}</p>
             </div>

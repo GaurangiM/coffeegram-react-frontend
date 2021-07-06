@@ -1,13 +1,10 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
-import { selectToken } from "./selectors";
+
 import {
   appLoading,
   appDoneLoading,
-  showMessageWithTimeout,
-  setMessage
 } from "../appState/actions";
-import { selectUser } from '../user/selectors'
 
 export const FETCHREVIEWS_SUCCESS = "FETCHREVIEWS_SUCCESS";
 

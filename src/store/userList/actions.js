@@ -3,8 +3,6 @@ import axios from "axios";
 import {
   appLoading,
   appDoneLoading,
-  showMessageWithTimeout,
-  setMessage
 } from "../appState/actions";
 
 export const GETUSERS_SUCCESS = "GETUSERS_SUCCESS"
