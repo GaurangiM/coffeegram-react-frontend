@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
+import { motion } from "framer-motion"
+
 import { useSelector } from "react-redux";
 import { selectUser } from "../../store/user/selectors";
-
 import CafesOnMap from '../../components/CafesOnMap/CafesOnMap'
+import { animationTwo, transition } from '../../animations';
 
 import './MyCafes.css'
 
@@ -20,10 +22,16 @@ const MyCafes = ()=> {
     fetchData()
   })
   return (
-    <div className="MyCafes">
+    <motion.div className="MyCafes"
+                initial='out'
+                animate='in'
+                exit='out'
+                variants={animationTwo}
+                className="CafeDetails"
+                transition={transition}>
       <h1>Hey Coffeeholic, here you can see the cafes you visited and reviewed in the past !</h1>
       <CafesOnMap cafes={cafeList}/>
-    </div>
+    </motion.div>
   )
 }
 

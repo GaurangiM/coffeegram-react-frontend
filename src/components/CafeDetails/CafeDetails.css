@@ -2,13 +2,13 @@
   display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 20px 125px;
+    padding: 20px 0px;
 }
 
-.details img {
-  width: 100%;
-  height: 600px;
-}
+/*.details img {
+  width: 400px;
+  height: 400px;
+}*/
 
 .cafeDescription {
   border: 1px solid transparent;
@@ -50,4 +50,49 @@ h1 {
 .comment .author {
   font-weight: bolder;
     font-size: larger;
+}
+
+
+.container {
+  font-family: sans-serif;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 620px;
+  overflow: hidden;
+}
+
+.primary-container {
+  height: 620px;
+  min-width: 1070px;
+  border-radius: 1rem;
+  position: relative;
+}
+
+.primary-product-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  height: 620px;
+  z-index: 1;
+}
+
+.related-product-image {
+  border-radius: 10px;
+  margin: 5px;
+}
+
+.product-gallery .related-product-image:first-child {
+  margin-top: 0;
 }

@@ -1,17 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Carousel from 'react-bootstrap/Carousel'
 import ReactStars from "react-rating-stars-component";
-import { Comment, Header } from 'semantic-ui-react'
+import { Comment, Header, Form, Button } from 'semantic-ui-react'
+import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
 import { selectCafe } from '../../store/cafeDetails/selectors';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectUser } from "../../store/user/selectors";
+import { postReviewForCafe } from "../../store/cafeDetails/actions"
 
 import './CafeDetails.css'
 
-const CafeDetails = (props)=> {
+//Ease
+const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
+
+
+const CafeDetails = (props) => {
   const cafeInfo = useSelector(selectCafe)
+  const user = useSelector(selectUser);
+  const [newReview, setNewReview] = useState("");
+  const dispatch = useDispatch();
+
+  const postReview = ()=> {
+    dispatch(postReviewForCafe(user.id, cafeInfo.id, newReview , 4))
+    setNewReview("")
+  }
+
   return (
-    <div className="details">
+    <div
+      initial='initial'
+      animate='animate'
+      exit='exit'
+      className="details">
       {cafeInfo && (
         <div>
           <h1>{cafeInfo.name}</h1>
@@ -23,24 +43,25 @@ const CafeDetails = (props)=> {
                 alt="First slide"
               />
             </Carousel.Item>
-            {cafeInfo.images.map(img=> (
+            {cafeInfo.images.map(img => (
               <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={img.image}
-                alt="First slide"
-              />
-            </Carousel.Item>
+                <img
+                  className="d-block w-100"
+                  src={img.image}
+                  alt="First slide"
+                />
+              </Carousel.Item>
             ))}
           </Carousel>
+
           <div className="cafeDescription shadow">
-          <ReactStars classNames="ratingStars"
-                    count={5}
-                    size={24}
-                    activeColor="#ffd700"
-                    isHalf={true}
-                    edit={false}
-                    value={parseFloat(props.rating)}
+            <ReactStars classNames="ratingStars"
+              count={5}
+              size={24}
+              activeColor="#ffd700"
+              isHalf={true}
+              edit={false}
+              value={parseFloat(props.rating)}
             />
             <p>Rating : {props.rating}</p>
             <p>{cafeInfo.description}</p>
@@ -48,24 +69,36 @@ const CafeDetails = (props)=> {
             <p>Address : {cafeInfo.address.houseNumber} {cafeInfo.address.streetName} {cafeInfo.address.postCode} {cafeInfo.address.city}
             </p>
           </div>
-         <Comment.Group>
-          <Header as='h3' dividing>
-            Reviews
-          </Header>
+          <Comment.Group >
+            <Header as='h3' dividing>
+              Reviews
+            </Header>
 
-          {cafeInfo.user_caves.map(i=> (
-            <Comment>
-            <Comment.Avatar src={i.user.avatar} />
-            <Comment.Content>
-              <Comment.Author as='a'>{i.user.firstName} {i.user.lastName}</Comment.Author>
-              <Comment.Text>{i.review}</Comment.Text>
-            </Comment.Content>
-          </Comment>
-          ))}
+            {cafeInfo.user_caves.map(i => (
+              <Comment>
+                <Comment.Avatar src={i.user.avatar} />
+                <Comment.Content>
+                  <Comment.Author as='a'>{i.user.firstName} {i.user.lastName}</Comment.Author>
+                  <Comment.Text>{i.review}</Comment.Text>
+                </Comment.Content>
+              </Comment>
+            ))}
+            {user.firstName && (
+              <Form reply>
+              <Form.TextArea value={newReview}
+                              onChange={(e)=> setNewReview(e.target.value)}/>
+              <Button content='Post Review' 
+                      labelPosition='left' 
+                      icon='edit' primary 
+                      onClick={postReview}/>
+            </Form>
+            )}
+            
           </Comment.Group>
-      </div>
-  )}
-  </div>
+
+        </div>
+      )}
+    </div>
   )
 }
 

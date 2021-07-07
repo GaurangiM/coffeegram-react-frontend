@@ -1,11 +1,13 @@
 body {
   font-family: 'Kalam', cursive;
   font-size: 1.7rem;
-  background-color: #EDF6E5 !important;
+  background-color: #fcf0cf !important;
+
+
 }
 
 .mainSection {
-  padding: 80px;
+  padding: 80px 20px;
 }
 
 .shadow{

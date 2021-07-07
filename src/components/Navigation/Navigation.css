@@ -3,6 +3,7 @@
     position: fixed;
     width: 100%;
     z-index: 450;
-    background-color: #B5EAEA;
+    background-color: #fff293;
+background-image: linear-gradient(315deg, #fff293 0%, #ffe884 74%);
 
 }
