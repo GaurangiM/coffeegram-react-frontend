@@ -11,6 +11,8 @@ import { motion } from "framer-motion"
 
 import { animationTwo, transition } from '../../animations';
 
+import './SignUp.css'
+
 export default function SignUp() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -42,9 +44,8 @@ export default function SignUp() {
       animate='in'
       exit='out'
       variants={animationTwo}
-      className="CafeDetails"
       transition={transition}>
-      <Container>
+      <Container className="SignUp">
         <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
           <h1 className="mt-5 mb-5">Signup</h1>
           <Form.Group controlId="formBasicName">
@@ -76,9 +77,6 @@ export default function SignUp() {
               placeholder="Enter email"
               required
             />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">

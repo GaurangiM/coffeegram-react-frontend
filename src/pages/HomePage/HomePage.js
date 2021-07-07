@@ -55,6 +55,13 @@ const HomePage = ()=> {
                 className="CafeDetails"
                 transition={transition} 
                 className="HomePage">
+      <div className="cityTags">
+        <a>Amsterdam</a>
+        <a>Maastricht</a>
+        <a>Rotterdam</a>
+        <a>Den Haag</a>
+        <a>Utrecht</a>
+      </div>
       <div className="searchCity">
         <Form>
           <Row className="align-items-center">
@@ -69,7 +76,7 @@ const HomePage = ()=> {
               />
             </Col>
             <Col xs="auto">
-              <Button type="submit" className="mb-2"
+              <Button type="submit" className="mb-2 cityButton"
                       onClick={searchCafes}>
                   Search
               </Button>
@@ -84,8 +91,9 @@ const HomePage = ()=> {
               <Link key={cafe.id} to={`/cafes/${cafe.id}`}>
                 <article class="box">
                   <img class="img" src={cafe.imageUrl} width="800" height="450" alt=''/>
-                  <h2 class="title"><a href="#0" aria-label="Learn more Very Distant Mountains">{cafe.name}</a></h2>
-                  <p>Rating : </p>
+                  <h2 class="title">
+                    <a href="#0" >{cafe.name}</a>
+                  </h2>
                 </article>
               </Link>
             )
@@ -106,10 +114,6 @@ const HomePage = ()=> {
                   <h2 class="title">
                     <a href="#0">{cafe.name}</a>
                   </h2>
-                  <motion.p exit={{ opacity: 0 }}
-                            transition={transition}>
-                    Rating : 
-                  </motion.p>
                 </article>
               </Link>
             )

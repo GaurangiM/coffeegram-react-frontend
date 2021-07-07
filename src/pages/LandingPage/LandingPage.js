@@ -14,12 +14,7 @@ const LandingPage = () => {
   }, [])
 
   return (
-    <motion.div initial='out'
-      animate='in'
-      exit='out'
-      variants={animationTwo}
-      className="CafeDetails"
-      transition={transition}
+    <motion.div 
       className="LandingPage">
       <div>
         <h1>Welcome to coffee community !</h1>

@@ -7,6 +7,8 @@ import { animationTwo, transition } from '../../animations';
 
 import './AboutUs.css'
 
+const transitionImg = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
+
 const AboutUsPage = () => {
 
   const allUsers = useSelector(selectUsers)
@@ -29,11 +31,14 @@ const AboutUsPage = () => {
       <div className="team">
         {allUsers && (
           allUsers.map(user => (
-            <div className="member shadow" key={user.id}>
+            <motion.div whileHover={{ scale: 1.1 }} 
+                        className="member shadow" 
+                        transition={transitionImg}
+                        key={user.id}>
               <img src={user.avatar} alt="User Avatar" />
-              <p>{user.firstName} {user.lastName}</p>
+              <h4>{ (user.firstName).toUpperCase() } {user.lastName.toUpperCase()}</h4>
               <p>{user.bio}</p>
-            </div>
+            </motion.div>
           ))
         )}
       </div>

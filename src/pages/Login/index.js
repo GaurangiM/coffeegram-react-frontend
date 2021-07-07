@@ -10,6 +10,8 @@ import { Col } from "react-bootstrap";
 import { motion } from "framer-motion"
 import { animationTwo, transition } from '../../animations';
 
+import './Login.css'
+
 export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -38,9 +40,9 @@ export default function SignUp() {
       animate='in'
       exit='out'
       variants={animationTwo}
-      className="CafeDetails"
+      className="Login"
       transition={transition}>
-      <Container >
+      <Container className="Login">
         <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
           <h1 className="mt-5 mb-5">Login</h1>
           <Form.Group controlId="formBasicEmail">
