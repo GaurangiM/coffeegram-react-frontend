@@ -20,7 +20,7 @@ const AboutUsPage = () => {
                 variants={animationTwo}
                 transition={transition}
                 className="aboutUs">
-      <h1>Coffeegram</h1>
+      <h1>CoffeeGram</h1>
       <p>We are a team of people who love coffee and some more coffee... So the motive behind this group is to share our love for coffee and
         suggest some cool cafes we come across in our lives ! Here you can browse through our exclusive collection of amazing cafes, its pictures and
         some genuine reviews about cafe. So next time you are on a stroll around any city in Netherlands, no need to Google, just search through our cafe collection

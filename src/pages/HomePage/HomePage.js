@@ -23,16 +23,26 @@ const HomePage = ()=> {
   const [searchCity, setSearchCity] = useState("")
   const [cityCafes, setCityCafes] = useState([])
   const [showSearchResult, setShowSearchResult] = useState(false)
+  const [showTagResult, setShowTagResult] = useState(false)
   
   useEffect(()=> {
     dispatch(getCafes())
   }, [dispatch])
 
-  const searchCafes = async(e)=> {
-    e.preventDefault()
+  const searchCafes = async(cityTag)=> {
+    if(cityTag === 'all')
+      {
+        setCityCafes(allCafeList)
+        return
+      }
     if(allCafeList) {
       const cafesInCity = allCafeList.filter(cafe=> 
-        cafe.address.city.toLowerCase() === searchCity.toLowerCase())
+        {
+          if(cityTag)
+            return cafe.address.city.toLowerCase() === cityTag.toLowerCase()
+          
+          return cafe.address.city.toLowerCase() === searchCity.toLowerCase()
+      })
       if(cafesInCity.length !== 0) {
         setCityCafes([...cafesInCity])
         setShowSearchResult(true)
@@ -56,34 +66,32 @@ const HomePage = ()=> {
                 transition={transition} 
                 className="HomePage">
       <div className="cityTags">
-        <a>Amsterdam</a>
-        <a>Maastricht</a>
-        <a>Rotterdam</a>
-        <a>Den Haag</a>
-        <a>Utrecht</a>
+        <a onClick={()=> {
+          let cityTag = "amsterdam"
+          searchCafes(cityTag)
+          }}>Amsterdam</a>
+        <a onClick={()=> {
+          let cityTag = "maastricht"
+          searchCafes(cityTag)
+        }}>Maastricht</a>
+        <a onClick={()=> {
+          let cityTag = "rotterdam"
+          searchCafes(cityTag)
+        }}>Rotterdam</a>
+        <a onClick={()=> {
+          let cityTag = "den haag"
+          searchCafes(cityTag)
+        }}>Den Haag</a>
+        <a onClick={()=> {
+          let cityTag = "utrecht"
+          searchCafes(cityTag)
+        }}>Utrecht</a>
+        <a onClick={()=> {
+          let cityTag = "all"
+          searchCafes(cityTag)
+        }}>All</a>
       </div>
-      <div className="searchCity">
-        <Form>
-          <Row className="align-items-center">
-            <Col xs="auto">
-              <Form.Control className="mb-2"
-                            id="inlineFormInput"
-                            placeholder="Enter city"
-                            value={searchCity}
-                            onChange={(e)=> {
-                              setSearchCity(e.target.value)
-                            }}
-              />
-            </Col>
-            <Col xs="auto">
-              <Button type="submit" className="mb-2 cityButton"
-                      onClick={searchCafes}>
-                  Search
-              </Button>
-            </Col>
-          </Row>
-        </Form>
-      </div>
+      
       <div className="cafes">
         {setShowSearchResult && (
           cityCafes.map(cafe=> {
