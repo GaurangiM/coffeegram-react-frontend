@@ -6,12 +6,11 @@
 <img src="https://img.shields.io/badge/React%20Leaflet-v1.7.1-blue">
 <img src="https://img.shields.io/badge/Framer--motion-v4.1.17-red">
 </p>
-<h1 align="center">
-	<img
-		width="600"
-		alt="User Interface"
-		src="">
-</h1>
+
+<div align="center" width="50">
+  <img src="https://github.com/GaurangiM/coffeegram-react-frontend/blob/homepage-rework/public/landing_page.gif" alt="Landing page"  width="550"/>
+</div>
+
 <h3 align="center">CoffeeGram is a web-based application, a community of people who share their common love for Coffee and Cafes. Here you can browse through an exclusive list of Cafes in different cities of Netherlands. Also, you can read through short description of cafe, look at the pictures of cafe and view the reviews posted by members of our community.
 </h3>
 
