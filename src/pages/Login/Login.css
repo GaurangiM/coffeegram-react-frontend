@@ -1,0 +1,11 @@
+.Login {
+  font-family: 'Josefin Slab', cursive !important;
+  font-size: 1.7rem;
+}
+
+input, .form-control {
+  border: 0 !important;
+  border-bottom: 1px solid black !important;
+  border-radius: 0 !important;
+  background-color: #fcf0cf !important;
+}

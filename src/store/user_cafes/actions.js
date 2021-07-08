@@ -4,7 +4,6 @@ import {
   appLoading,
   appDoneLoading,
   showMessageWithTimeout,
-  setMessage
 } from "../appState/actions";
 import { selectUser } from '../user/selectors'
 

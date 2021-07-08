@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./App.css";
 
+import { AnimatePresence } from "framer-motion";
 import { Switch, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Loading from "./components/Loading";
@@ -39,25 +40,30 @@ function App() {
     <div className="App">
       <Navigation />
       <div className="mainSection">
-      <MessageBox />
-      {isLoading ? <Loading /> : null}
-      <div className="appContainer">
-        <Switch>
-          <Route exact path="/" component={LandingPage} />
-          <Route path="/home" component={HomePage} />
-          <Route path="/aboutus" component={AboutUsPage} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/login" component={Login} />
-          <Route path="/cafes/:cafeId" component={CafeDetailsPage} />
-          {token ? <Route path="/postcafe" component={PostNewCafe} /> : 
-                  <PageNotFound message="Hey Coffeeholic, be a part of our community by signing up and add some cool cafes to our list!"/>}
-          {token ? <Route path="/mycafes" component={MyCafes}/> :
-                    <PageNotFound message="Hey Coffeeholic, be a part of our community by signing up and add some cool cafes to our list!"/>}
-        </Switch>
+        <MessageBox />
+        {isLoading ? <Loading /> : null}
+        <div className="appContainer">
+          <Route render={({ location }) => (
+            <AnimatePresence exitBeforeEnter>
+              <Switch location={location} key={location.pathname}>
+                <Route exact path="/" component={LandingPage} />
+                <Route path="/home" component={HomePage} />
+                <Route path="/aboutus" component={AboutUsPage} />
+                <Route path="/signup" component={SignUp} />
+                <Route path="/login" component={Login} />
+                <Route path="/cafes/:cafeId" component={CafeDetailsPage} />
+                {token ? <Route path="/postcafe" component={PostNewCafe} /> :
+                  <PageNotFound message="Hey Coffeeholic, be a part of our community by signing up and add some cool cafes to our list!" />}
+                {token ? <Route path="/mycafes" component={MyCafes} /> :
+                  <PageNotFound message="Hey Coffeeholic, be a part of our community by signing up and add some cool cafes to our list!" />}
+              </Switch>
+            </AnimatePresence>
+          )} />
+
+        </div>
       </div>
-      </div>
-      
-      
+
+
     </div>
   );
 }

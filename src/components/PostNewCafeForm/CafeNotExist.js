@@ -19,15 +19,9 @@ const CafeNotExists = ({cafeName})=> {
   const [city, setCity] = useState("")
   const [image, setImage] = useState("")
 
-  const postCafe = async(e)=> {
+  const postCafe = (e)=> {
     e.preventDefault()
-    /*const query = encodeURI(`${street} ${houseNumber} ${postCode} ${city}`)
-    const geoData = await Axios.get(`http://api.positionstack.com/v1/forward?access_key=13a366ecdb5f1db8a5484e2a6ac61aec&query=${query}`)
-    console.log(query, geoData.data.data[0])
-    
-      setLatitude(geoData.data.data[0].latitude)
-      setLongitude(geoData.data.data[0].longitude)*/
-      dispatch(postNewCafe(cafeName, description, postCode, street, houseNumber, city, image, history))
+    dispatch(postNewCafe(cafeName, description, postCode, street, houseNumber, city, image, history))
       setCity("")
       setDescription("")
       setHouseNumber("")

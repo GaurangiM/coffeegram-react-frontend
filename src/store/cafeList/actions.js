@@ -1,13 +1,10 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
-import { selectToken } from "./selectors";
-
 
 import {
   appLoading,
   appDoneLoading,
   showMessageWithTimeout,
-  setMessage
 } from "../appState/actions";
 import { selectUser } from '../user/selectors'
 
@@ -45,26 +42,26 @@ export const getCafeReviews = (id)=> async(dispatch, getState)=> {
   try {
     const response = await axios.get(`${apiUrl}/cafes/${id}/reviews`)
     console.log(response)
-    //dispatch(fetchReviewsSuccess(response.data.reviews))
   }catch(e) {
     console.log(e.message)
   }
 }
 
-export const postNewCafe = (name, description, postCode, street, houseNumber, city, image, history)=> 
+export const postNewCafe = (cafeName, description, postCode, street, houseNumber, city, image, history)=> 
       async(dispatch, getState)=> 
 {
-  const {id, token } = selectUser(getState())
+  console.log(cafeName)
+  const { token } = selectUser(getState())
   const query = encodeURI(`${street} ${houseNumber} ${postCode} ${city}`)
   const geoData = await axios.get(`http://api.positionstack.com/v1/forward?access_key=13a366ecdb5f1db8a5484e2a6ac61aec&query=${query}`)
   let latitude = geoData.data.data[0].latitude
   let longitude = geoData.data.data[0].longitude
-  console.log(latitude, longitude)
+  console.log(latitude, longitude, cafeName)
   dispatch(appLoading());
   
   try {
     const response = await axios.post(`${apiUrl}/cafes/postnewcafe`,{
-      name, 
+      name: cafeName, 
       description, 
       image, 
       postCode, 
