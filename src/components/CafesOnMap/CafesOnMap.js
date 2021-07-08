@@ -1,6 +1,9 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { Icon } from "leaflet";
 import React from 'react'
+import { motion } from "framer-motion";
+
+import { transition, animationOne } from '../../animations';
 import "leaflet/dist/leaflet.css";
 import './CafesOnMap.css'
 
@@ -12,7 +15,11 @@ const CafesOnMap = ({cafes})=> {
   })
 
   return (
-    <div className="CafesOnMap">
+    <motion.div initial='out'
+    animate='in'
+    exit='out'
+    variants={animationOne}
+    transition={transition} className="CafesOnMap">
       <MapContainer center={[52.3680775, 4.9041506]} zoom={13} scrollWheelZoom={false}>
         <TileLayer attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -31,7 +38,7 @@ const CafesOnMap = ({cafes})=> {
           )}
       </MapContainer>
 
-    </div>
+    </motion.div>
   )
 }
 

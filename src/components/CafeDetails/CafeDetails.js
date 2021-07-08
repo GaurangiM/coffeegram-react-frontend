@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import Carousel from 'react-bootstrap/Carousel'
 import ReactStars from "react-rating-stars-component";
 import { Comment, Header, Form, Button } from 'semantic-ui-react'
-import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
 import { selectCafe } from '../../store/cafeDetails/selectors';
 import { useSelector, useDispatch } from 'react-redux'
@@ -10,9 +9,6 @@ import { selectUser } from "../../store/user/selectors";
 import { postReviewForCafe } from "../../store/cafeDetails/actions"
 
 import './CafeDetails.css'
-
-//Ease
-const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
 
 
 const CafeDetails = (props) => {

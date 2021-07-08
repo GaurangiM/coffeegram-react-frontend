@@ -18,12 +18,9 @@ const CafeNotExists = ({cafeName})=> {
   const [houseNumber, setHouseNumber] = useState("")
   const [city, setCity] = useState("")
   const [image, setImage] = useState("")
-  const [name, setName] = useState(cafeName)
-  //console.log(name)
 
   const postCafe = (e)=> {
     e.preventDefault()
-    console.log(cafeName)
     dispatch(postNewCafe(cafeName, description, postCode, street, houseNumber, city, image, history))
       setCity("")
       setDescription("")

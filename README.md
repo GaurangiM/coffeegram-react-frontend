@@ -1,42 +1,54 @@
-# Frontend template
+<h1 align="center">CoffeeGram</h1>
+<p align="center">
+<img src="https://img.shields.io/badge/React-17.0.2-brightgreen.svg" >
+<img src="https://img.shields.io/badge/npm-v7.0.0-blue.svg">
+<img src="https://img.shields.io/badge/axios-v0.21.1-orange.svg">
+<img src="https://img.shields.io/badge/React%20Leaflet-v1.7.1-blue">
+<img src="https://img.shields.io/badge/Framer--motion-v4.1.17-red">
+</p>
+<h1 align="center">
+	<img
+		width="600"
+		alt="User Interface"
+		src="">
+</h1>
+<h3 align="center">CoffeeGram is a web-based application, a community of people who share their common love for Coffee and Cafes. Here you can browse through an exclusive list of Cafes in different cities of Netherlands. Also, you can read through short description of cafe, look at the pictures of cafe and view the reviews posted by members of our community.
+</h3>
 
-This is a simple react/redux/jwt template to start a project quickly
 
-## Table of contents:
+- [See in action here]()
 
-- **[Setup](#setup-how-to-use-this-template)**
-- **[Create React App docs](#cra-docs)**
+## Features
+- Ability to view cafes in different cities of Netherlands(currently Amsterdam, Maastricht, Rotterdam, Den Haag, Utrecht)
+- Ability to add cafe to list by signing up 
+- Ability to view cafe description, pictures, contact details, address and reviews
+- Ability to post review for cafe if you are signed up user
+- Ability to view cafes reviewed by you, on map
 
-## SETUP How to use this template
+## Tools & Technologies
+- React JS
+- Axios
+- Express 
+- Postegres
+- Leaflet map
+- Framer-motion
 
-1. Create a new project based on this template using the `Use this template` button
+## Setup
+Clone this repo to your desktop and run `npm install` to install all the dependencies.
 
-![HOW_TO_USE](https://user-images.githubusercontent.com/20372832/77003323-70966180-695d-11ea-8abe-b362d57135f3.gif)
+---
 
-2. Clone the app
+## Usage
+After you clone this repo to your desktop, go to its root directory and run `npm install` to install its dependencies.
 
-```
-git clone git@github.com:YOUR_GITHUB_NAME/YOUR_PROJECT_NAME.git
-```
+Once the dependencies are installed, you can run  `npm start` to start the application. You will then be able to access it at localhost:3000
 
-3. cd into your project
 
-```
-cd YOUR_PROJECT_NAME
-```
+---
 
-4. install dependencies
+## Future scope
 
-```
-npm install
-```
-
-5. Start development server with npm start
-
-```
-npm start
-```
-
-## CRA docs
-
-The normal Create React App docs can be found in [CRA_DOCS.md](./CRA_DOCS.md)
+- Extend API to accomodate more cities in Netherlands
+- Display ratings on Home Page
+- Add page scroll animations
+- Add Profile page for user

@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { motion } from "framer-motion"
 
-import { animationTwo, transition } from '../../animations';
-
 import './LandingPage.css'
 
 const LandingPage = () => {

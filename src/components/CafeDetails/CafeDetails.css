@@ -5,10 +5,10 @@
     padding: 20px 0px;
 }
 
-/*.details img {
+.details img {
   width: 400px;
-  height: 400px;
-}*/
+  height: 600px;
+}
 
 .cafeDescription {
   border: 1px solid transparent;
