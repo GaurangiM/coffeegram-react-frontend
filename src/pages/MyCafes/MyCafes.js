@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
 import { motion } from "framer-motion"
+import { apiUrl } from "../../config/constants";
 
 import { useSelector } from "react-redux";
 import { selectUser } from "../../store/user/selectors";
@@ -15,7 +16,7 @@ const MyCafes = ()=> {
 
   useEffect(()=> {
     const fetchData = async()=> {
-      const response = await axios.get(`http://localhost:4000/cafes/${user.id}/mycafes`)
+      const response = await axios.get(`${apiUrl}/cafes/${user.id}/mycafes`)
       console.log(response.data.userCafes)
       setCafeList([...response.data.userCafes])
     }
