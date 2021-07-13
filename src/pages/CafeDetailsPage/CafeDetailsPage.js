@@ -22,7 +22,7 @@ const CafeDetailsPage = () => {
 
   useEffect(() => {
     dispatch(fetchCafeDetails(cafeId))
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 
