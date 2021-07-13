@@ -27,7 +27,6 @@ const MyCafes = ()=> {
                 animate='in'
                 exit='out'
                 variants={animationTwo}
-                className="CafeDetails"
                 transition={transition}>
       <h1>Hey Coffeeholic, here you can see the cafes you visited and reviewed in the past !</h1>
       <CafesOnMap cafes={cafeList}/>

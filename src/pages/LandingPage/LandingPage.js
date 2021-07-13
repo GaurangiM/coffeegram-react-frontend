@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
 import { motion } from "framer-motion"
 
 import './LandingPage.css'
 
 const LandingPage = () => {
-  const dispatch = useDispatch()
   useEffect(() => {
 
   }, [])

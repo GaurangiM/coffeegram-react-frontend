@@ -57,27 +57,27 @@ const HomePage = () => {
       transition={transition}
       className="HomePage">
       <div className="cityTags">
-        <a onClick={() => {
+        <a href="/" onClick={() => {
           let cityTag = "amsterdam"
           searchCafes(cityTag)
         }}>Amsterdam</a>
-        <a onClick={() => {
+        <a href="/" onClick={() => {
           let cityTag = "maastricht"
           searchCafes(cityTag)
         }}>Maastricht</a>
-        <a onClick={() => {
+        <a href="/" onClick={() => {
           let cityTag = "rotterdam"
           searchCafes(cityTag)
         }}>Rotterdam</a>
-        <a onClick={() => {
+        <a href="/" onClick={() => {
           let cityTag = "den haag"
           searchCafes(cityTag)
         }}>Den Haag</a>
-        <a onClick={() => {
+        <a href="/" onClick={() => {
           let cityTag = "utrecht"
           searchCafes(cityTag)
         }}>Utrecht</a>
-        <a onClick={() => {
+        <a href="/" onClick={() => {
           let cityTag = "all"
           searchCafes(cityTag)
         }}>All</a>
@@ -115,7 +115,7 @@ const HomePage = () => {
                     src={cafe.imageUrl}
                     width="800"
                     height="450"
-                    alt='A cafe image' />
+                    alt='A cafe' />
                   <h2 class="title">
                     <a href="#0">{cafe.name}</a>
                   </h2>

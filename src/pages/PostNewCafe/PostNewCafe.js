@@ -45,7 +45,6 @@ const PostNewCafe = () => {
       animate='in'
       exit='out'
       variants={animationTwo}
-      className="CafeDetails"
       transition={transition}>
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
         <h1 className="mt-5 mb-5">Add new cafe to our list !</h1>
