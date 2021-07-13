@@ -57,27 +57,27 @@ const HomePage = () => {
       transition={transition}
       className="HomePage">
       <div className="cityTags">
-        <a href="/" onClick={() => {
+        <a href="#/" onClick={() => {
           let cityTag = "amsterdam"
           searchCafes(cityTag)
         }}>Amsterdam</a>
-        <a href="/" onClick={() => {
+        <a href="#/" onClick={() => {
           let cityTag = "maastricht"
           searchCafes(cityTag)
         }}>Maastricht</a>
-        <a href="/" onClick={() => {
+        <a href="#/" onClick={() => {
           let cityTag = "rotterdam"
           searchCafes(cityTag)
         }}>Rotterdam</a>
-        <a href="/" onClick={() => {
+        <a href="#/" onClick={() => {
           let cityTag = "den haag"
           searchCafes(cityTag)
         }}>Den Haag</a>
-        <a href="/" onClick={() => {
+        <a href="#/" onClick={() => {
           let cityTag = "utrecht"
           searchCafes(cityTag)
         }}>Utrecht</a>
-        <a href="/" onClick={() => {
+        <a href="#/" onClick={() => {
           let cityTag = "all"
           searchCafes(cityTag)
         }}>All</a>

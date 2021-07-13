@@ -30,6 +30,12 @@
     background-color: #fbb034;
     background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);
     cursor: pointer;
+    text-decoration: none;
+}
+
+.cityTags a:hover {
+  text-decoration: none;
+  color: white;
 }
 
 .cafes {
