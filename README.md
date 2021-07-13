@@ -22,8 +22,12 @@
 
 - [See in action here]()
 
+---
+
 ## The Idea 💡
 We go on exploring different cities of Netherlands on weekend and are always looking for some good cafes to have our favorite cup of Capuccino. So I thought I should build an app which will have an exclusive collection of cafes reviewed by people who love coffee ! Being a signed up member of CoffeeGram, you can add cafes to list and also post reviews for it. I hope this app helps people who love coffee and some more coffee !
+
+---
 
 ## Features
 - Ability to view cafes in different cities of Netherlands(currently Amsterdam, Maastricht, Rotterdam, Den Haag, Utrecht)
@@ -31,6 +35,8 @@ We go on exploring different cities of Netherlands on weekend and are always loo
 - Ability to view cafe description, pictures, contact details, address and reviews
 - Ability to post review for cafe if you are signed up user
 - Ability to view cafes reviewed by you, on map
+
+---
 
 ## Tools & Technologies
 - React JS <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="15" height="15"/>
@@ -40,9 +46,13 @@ We go on exploring different cities of Netherlands on weekend and are always loo
 - Leaflet map 🍃
 - Framer-motion
 
+--- 
+
 ## API
 - For this project, I have built my own API using express
 - [Positionstack API](https://positionstack.com/documentation): For fetching coordinates from address
+
+--- 
 
 ## Setup
 Clone this repo to your desktop and run `npm install` to install all the dependencies.
@@ -80,6 +90,23 @@ FRONTEND:
   - react-rating-stars          Show ratings as stars
 ```
 
+---
+
+## Backend 
+For this full-stack application, I built my own API tailored to the project requirements. You can check the [Backend Repo](https://github.com/GaurangiM/coffeegram-react-server) to know more about the backend code.
+
+---
+
+## Wireframe 
+Here you can view [Wireframe](https://wireframepro.mockflow.com/editor.jsp?editor=on&bgcolor=transparent&perm=Create&ptitle=Cafe%20guide&category=sketchui&projectid=M834acd074bdd167c49e2ef902c71ba271623251319099&publicid=fc2a25a50d484eaaa0d34e340026511d#/page/8d776beb21e540529d86040f39a76779) of the project.
+
+---
+
+## Project Board
+Here you can view the [Project Board](https://github.com/users/GaurangiM/projects/1) to see the user stories.
+
+---
+
 ## Screenshots and Gif
 
 <h1 align="center">
@@ -89,6 +116,8 @@ FRONTEND:
 <img width="600" alt="Post cafe page" src="public/post-cafe-page.png">
 <img width="600" alt="Home page" src="public/home-page.gif">
 </h1>
+
+---
 
 ## Future scope
 
